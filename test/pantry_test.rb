@@ -38,5 +38,7 @@ class PantryTest < Minitest::Test
     assert_equal 20, @pantry.shopping_list['Cheese']
   end
 
+  def test_it_can_add_items_from_two_recipes_to_shopping_list
+
 
 end
