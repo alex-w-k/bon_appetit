@@ -2,7 +2,7 @@ require 'pry'
 require './lib/recipe'
 
 class Pantry
-  attr_accessor :stock, :shopping_list, :cook_book
+  attr_reader :stock, :shopping_list, :cook_book
 
   def initialize
     @stock         = {}
@@ -31,10 +31,11 @@ class Pantry
   def add_to_shopping_list(recipe)
     check_stock_from_recipe(recipe)
     recipe.ingredients.each do |key, value|
+      key = key.capitalize
       if !shopping_list[key].nil?
-        shopping_list[key.capitalize] = (shopping_list[key] + value)
+        shopping_list[key] = (shopping_list[key] + value)
       else
-        shopping_list[key.capitalize] = value
+        shopping_list[key] = value
       end
     end
   end
