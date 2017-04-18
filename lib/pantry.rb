@@ -63,17 +63,9 @@ class Pantry
   end
 
   def what_can_i_make
-    things = @cook_book.keep_if do |key, value|
-      binding.pry
-      value.each do |check|
-        binding.pry
-        if @stock.include?(check)
-          true
-        else
-          false
-        end
-      end
+    ingredients = @cook_book.values
+    recipes = []
+    ingredients.each do |key, values|
     end
-    things.keys
   end
 end
