@@ -1,11 +1,13 @@
+require 'pry'
 require './lib/recipe'
 
 class Pantry
-  attr_accessor :stock, :shopping_list
+  attr_accessor :stock, :shopping_list, :cook_book
 
   def initialize
-    @stock = {}
+    @stock         = {}
     @shopping_list = {}
+    @cook_book     = {}
   end
 
   def stock_check(item)
@@ -57,6 +59,21 @@ class Pantry
   end
 
   def add_to_cookbook(recipe)
+    @cook_book[recipe.name] = recipe.ingredients
+  end
 
+  def what_can_i_make
+    things = @cook_book.keep_if do |key, value|
+      binding.pry
+      value.each do |check|
+        binding.pry
+        if @stock.include?(check)
+          true
+        else
+          false
+        end
+      end
+    end
+    things.keys
   end
 end

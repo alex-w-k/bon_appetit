@@ -78,7 +78,7 @@ class PantryTest < Minitest::Test
     @pantry.restock("Cheese", 10)
     @pantry.restock("Flour", 20)
     @pantry.restock("Brine", 40)
-    @pantry.restock("Pickles", 40)
+    @pantry.restock("Cucumber", 40)
     @pantry.restock("Raw nuts", 20)
     @pantry.restock("Salt", 20)
 
