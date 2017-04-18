@@ -10,6 +10,10 @@ class PantryTest < Minitest::Test
     @r_1 = Recipe.new('Cheese Pizza')
     @r_1.add_ingredient('Cheese', 20)
     @r_1.add_ingredient('Flour', 20)
+    @r_2 = Recipe.new('Spaghetti')
+    @r_2.add_ingredient('Noodles', 10)
+    @r_2.add_ingredient('Suace', 10)
+    @r_2.add_ingredient('Cheese', 5)
   end
 
   def test_it_initializes
@@ -36,9 +40,16 @@ class PantryTest < Minitest::Test
     @pantry.add_to_shopping_list(@r_1)
     assert_instance_of Hash, @pantry.shopping_list
     assert_equal 20, @pantry.shopping_list['Cheese']
+    assert_equal 20, @pantry.shopping_list['Flour']
   end
 
   def test_it_can_add_items_from_two_recipes_to_shopping_list
+    @pantry.add_to_shopping_list(@r_1)
+    @pantry.add_to_shopping_list(@r_2)
+    assert_instance_of Hash, @pantry.shopping_list
+    assert_equal 25, @pantry.shopping_list['Cheese']
+    assert_equal 10, @pantry.shopping_list['Noodles']
+  end
 
 
 end
