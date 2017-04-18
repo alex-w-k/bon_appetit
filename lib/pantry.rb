@@ -47,4 +47,12 @@ class Pantry
       recipe.ingredients[update] = numbers[index]
     end
   end
+
+  def print_shopping_list
+    list = ''
+    shopping_list.each do |item, number|
+      list << "* #{item}: #{number}\n"
+    end
+    list
+  end
 end

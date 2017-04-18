@@ -51,5 +51,11 @@ class PantryTest < Minitest::Test
     assert_equal 10, @pantry.shopping_list['Noodles']
   end
 
+  def test_can_it_print_shopping_list
+    @pantry.add_to_shopping_list(@r_1)
+    list = "* Cheese: 20\n* Flour: 20\n"
+
+    assert_equal list, @pantry.print_shopping_list
+  end
 
 end
