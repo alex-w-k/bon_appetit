@@ -55,4 +55,8 @@ class Pantry
     end
     list
   end
+
+  def add_to_cookbook(recipe)
+
+  end
 end
